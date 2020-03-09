@@ -14,6 +14,7 @@ class GameViewController: UIViewController {
 
     var scene: SCNScene!
     var sceneView: SCNView!
+    var playerNode = SCNNode()
     var cameraNode = SCNNode()
     var lightNode = SCNNode()
     var mapNode = SCNNode()
@@ -23,9 +24,22 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScene()
+        setupPlayer()
         setupCamera()
         setupFloor()
         setupLights()
+    }
+
+    func setupPlayer() {
+        guard let playerScene = SCNScene(named: "art.scnassets/Chicken.scn") else {
+            print("URL name is wrong")
+            return
+        }
+        if let player = playerScene.rootNode.childNode(withName: "player", recursively: true) {
+            playerNode = player
+            playerNode.position = SCNVector3(0, 0.3, 0)
+            scene.rootNode.addChildNode(playerNode)
+        }
     }
 
     func setupScene() {
