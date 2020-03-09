@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
     var scene: SCNScene!
     var sceneView: SCNView!
     var cameraNode = SCNNode()
+    var lightNode = SCNNode()
     var mapNode = SCNNode()
     var lanes = [LaneNode]()
     var laneCount = 0
@@ -24,6 +25,7 @@ class GameViewController: UIViewController {
         setupScene()
         setupCamera()
         setupFloor()
+        setupLights()
     }
 
     func setupScene() {
@@ -36,7 +38,7 @@ class GameViewController: UIViewController {
         scene.rootNode.addChildNode(mapNode)
 
         for _ in 0..<20 {
-            let type = randomBool(odds: 5) ? LaneType.grass : LaneType.road
+            let type = randomBool(odds: 3) ? LaneType.grass : LaneType.road
             let lane = LaneNode(type: type, width: 21)
             lane.position = SCNVector3(0, 0, 5 - laneCount)
             laneCount += 1
@@ -63,6 +65,28 @@ class GameViewController: UIViewController {
         cameraNode.position = SCNVector3(0, 10, 0)
         cameraNode.eulerAngles = SCNVector3(-toRadians(angle: 72), toRadians(angle: 9), 0.0)
         scene.rootNode.addChildNode(cameraNode)
+    }
+
+    func setupLights() {
+
+        let ambientLight = SCNNode()
+        ambientLight.light = SCNLight()
+        ambientLight.light?.type = .ambient
+
+        let directionalLight = SCNNode()
+        directionalLight.light = SCNLight()
+        directionalLight.light?.type = .directional
+        directionalLight.light?.castsShadow = true
+        directionalLight.light?.shadowColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
+        directionalLight.position = SCNVector3(-5, 5, 0)
+        directionalLight.eulerAngles = SCNVector3(0, -toRadians(angle: 90), -toRadians(angle: 45))
+        lightNode.addChildNode(ambientLight)
+        lightNode.addChildNode(directionalLight)
+
+        lightNode.position = cameraNode.position
+
+        scene.rootNode.addChildNode(lightNode)
+
     }
 
 }
