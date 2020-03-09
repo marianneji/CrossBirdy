@@ -22,7 +22,7 @@ class LaneNode: SCNNode {
 
         switch type {
         case .grass:
-            guard let texture = UIImage(named: "art.scnassets/grass.png") else {
+            guard let texture = UIImage(named: "art.scnassets/top-view-grass.png") else {
                 break
             }
             createLane(width: width, Height: 0.4, image: texture)
