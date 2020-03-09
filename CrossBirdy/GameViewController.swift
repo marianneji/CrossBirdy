@@ -52,6 +52,7 @@ class GameViewController: UIViewController {
         sceneView = view as? SCNView
         sceneView.backgroundColor = .black
         scene = SCNScene()
+        sceneView.delegate = self
 
         sceneView.scene = scene
 
@@ -83,7 +84,7 @@ class GameViewController: UIViewController {
     func setupCamera() {
         cameraNode.camera = SCNCamera()
         cameraNode.position = SCNVector3(0, 10, 0)
-        cameraNode.eulerAngles = SCNVector3(-toRadians(angle: 72), toRadians(angle: 9), 0.0)
+        cameraNode.eulerAngles = SCNVector3(-toRadians(angle: 60), toRadians(angle: 20), 0.0)
         scene.rootNode.addChildNode(cameraNode)
     }
 
@@ -138,8 +139,8 @@ class GameViewController: UIViewController {
         let moveLeftAction = SCNAction.moveBy(x: -1, y: 0, z: 0, duration: 0.2)
 
         let turnForwardAction = SCNAction.rotateTo(x: 0, y: toRadians(angle: 180), z: 0, duration: 0.2, usesShortestUnitArc: true)
-        let turnRightAction = SCNAction.rotateTo(x: 0, y: -toRadians(angle: 90), z: 0, duration: 0.2, usesShortestUnitArc: true)
-        let turnLeftAction = SCNAction.rotateTo(x: 0, y: toRadians(angle: 90), z: 0, duration: 0.2, usesShortestUnitArc: true)
+        let turnRightAction = SCNAction.rotateTo(x: 0, y: toRadians(angle: 90), z: 0, duration: 0.2, usesShortestUnitArc: true)
+        let turnLeftAction = SCNAction.rotateTo(x: 0, y: toRadians(angle: -90), z: 0, duration: 0.2, usesShortestUnitArc: true)
 
         jumpForward = SCNAction.group([jumpAction, moveForwardAction, turnForwardAction])
         jumpRight = SCNAction.group([jumpAction, moveRightAction, turnRightAction])
@@ -152,6 +153,24 @@ class GameViewController: UIViewController {
         }
     }
 
+    func updatePositions() {
+
+        let diffX = (playerNode.position.x + 1) - cameraNode.position.x
+        let diffZ = (playerNode.position.z + 2) - cameraNode.position.z
+
+        cameraNode.position.x += diffX
+        cameraNode.position.z += diffZ
+
+        lightNode.position = cameraNode.position
+
+    }
+
+}
+
+extension GameViewController: SCNSceneRendererDelegate {
+    func renderer(_ renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: TimeInterval) {
+        updatePositions()
+    }
 }
 
 extension GameViewController {
