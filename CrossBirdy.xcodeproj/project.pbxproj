@@ -15,6 +15,9 @@
 		72AAC3C42412945D0052C6EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72AAC3C22412945D0052C6EB /* LaunchScreen.storyboard */; };
 		72AAC3CC24129C300052C6EB /* LaneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AAC3CB24129C300052C6EB /* LaneNode.swift */; };
 		72AAC3CE2416449D0052C6EB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AAC3CD2416449D0052C6EB /* Utils.swift */; };
+		72AAC3D0241792230052C6EB /* CollisionNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AAC3CF241792230052C6EB /* CollisionNodes.swift */; };
+		72AAC3D22417A7180052C6EB /* 8-BIT WONDER.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 72AAC3D12417A6E00052C6EB /* 8-BIT WONDER.TTF */; };
+		72AAC3D42417A7950052C6EB /* GameHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AAC3D32417A7950052C6EB /* GameHud.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		72AAC3C52412945D0052C6EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72AAC3CB24129C300052C6EB /* LaneNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaneNode.swift; sourceTree = "<group>"; };
 		72AAC3CD2416449D0052C6EB /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		72AAC3CF241792230052C6EB /* CollisionNodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionNodes.swift; sourceTree = "<group>"; };
+		72AAC3D12417A6E00052C6EB /* 8-BIT WONDER.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "8-BIT WONDER.TTF"; sourceTree = "<group>"; };
+		72AAC3D32417A7950052C6EB /* GameHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHud.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,7 @@
 		72AAC3B6241294590052C6EB /* CrossBirdy */ = {
 			isa = PBXGroup;
 			children = (
+				72AAC3D12417A6E00052C6EB /* 8-BIT WONDER.TTF */,
 				72AAC3B7241294590052C6EB /* AppDelegate.swift */,
 				72AAC3B9241294590052C6EB /* art.scnassets */,
 				72AAC3BB241294590052C6EB /* GameViewController.swift */,
@@ -69,6 +76,8 @@
 				72AAC3C22412945D0052C6EB /* LaunchScreen.storyboard */,
 				72AAC3C52412945D0052C6EB /* Info.plist */,
 				72AAC3CD2416449D0052C6EB /* Utils.swift */,
+				72AAC3CF241792230052C6EB /* CollisionNodes.swift */,
+				72AAC3D32417A7950052C6EB /* GameHud.swift */,
 			);
 			path = CrossBirdy;
 			sourceTree = "<group>";
@@ -134,6 +143,7 @@
 				72AAC3BA241294590052C6EB /* art.scnassets in Resources */,
 				72AAC3C42412945D0052C6EB /* LaunchScreen.storyboard in Resources */,
 				72AAC3C12412945D0052C6EB /* Assets.xcassets in Resources */,
+				72AAC3D22417A7180052C6EB /* 8-BIT WONDER.TTF in Resources */,
 				72AAC3BF241294590052C6EB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +159,8 @@
 				72AAC3BC241294590052C6EB /* GameViewController.swift in Sources */,
 				72AAC3B8241294590052C6EB /* AppDelegate.swift in Sources */,
 				72AAC3CE2416449D0052C6EB /* Utils.swift in Sources */,
+				72AAC3D0241792230052C6EB /* CollisionNodes.swift in Sources */,
+				72AAC3D42417A7950052C6EB /* GameHud.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
